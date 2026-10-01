@@ -29,6 +29,7 @@
   * Splay Trees     - Containers::SplayTreeMap
   * Tries           - Containers::Trie
   * Suffix Array    - Containers::SuffixArray
+  * Suffix Automaton- Containers::SuffixAutomaton
   * kd Tree         - Containers::KDTree
 
   * Search algorithms
@@ -62,5 +63,6 @@ require 'containers/priority_queue'
 require 'containers/rb_tree_map'
 require 'containers/splay_tree_map'
 require 'containers/suffix_array'
+require 'containers/suffix_automaton'
 require 'containers/trie'
 require 'containers/kd_tree'
