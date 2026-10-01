@@ -156,6 +156,22 @@
       * m is length of substring to search for
       * n is the total number of substrings
 
+* KLL Sketch
+
+  * About - mergeable randomized summary for approximate quantile/rank queries over a stream,
+  after Karn, Lang, Liberty ("Optimal Quantile Approximation in Streams", FOCS 2016). Workers
+  can each report a sketch and a center can merge them to estimate quantiles of the full stream.
+  * Capacity parameter k - bounds the *rank* error of answers (roughly O(log(n/k)/k) with high
+  probability), NOT the error in value units. Larger k means less rank error and more memory.
+  * Exactness - while no compaction has happened all values are retained and answers are exact.
+  * Randomness - caller-supplied (e.g. Random.new(seed)); error bounds are probabilistic, so a
+  single seeded run passing a tolerance is not a deterministic guarantee.
+  * Class's method complexities
+    * Time Complexity: O(1) amortized - `add`
+    * Time Complexity: O(s) - `merge`, where s is the other sketch's retained size
+    * Time Complexity: O(r log r) - `quantile`, where r is the retained size (O(k log(n/k)))
+    * Space Complexity: O(k log(n/k))
+
 * Search algorithms
 
   * Binary Search (i.e. BST, see RBTreeMap)

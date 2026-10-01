@@ -1,6 +1,8 @@
 === August 20, 2025
 
     * Fix Heap not working in certain cases
+    * Add Containers::KLLSketch, a mergeable quantile summary whose capacity
+      parameter bounds rank error (not value error)
 
 === January 22, 2013
     
