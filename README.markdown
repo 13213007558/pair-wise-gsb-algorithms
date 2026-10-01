@@ -44,6 +44,8 @@ compare performance in different situations.
       - Quicksort                Algorithms::Sort.quicksort
       - Mergesort                Algorithms::Sort.mergesort
       - Dual-Pivot Quicksort     Algorithms::Sort.dualpivotquicksort
+    * Set reconciliation
+      - Invertible Bloom Lookup Table Algorithms::IBLT
 
 ## SYNOPSIS:
 
@@ -55,6 +57,17 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    left = Algorithms::IBLT.new(200, 3).insert_all(left_ids)
+    right = Algorithms::IBLT.new(200, 3).insert_all(right_ids)
+    result = (left - right).recover
+    result.status       # :complete, :partial, :failed, or :no_difference
+    result.left_only
+    result.right_only
+    result.residual     # Present whenever recovery is incomplete
+
+    IDs use set semantics, so repeated insertion is ignored. Use
+    result.no_difference? to distinguish equal sets from a completed reconciliation.
 
 ## REQUIREMENTS:
 
