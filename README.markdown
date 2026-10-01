@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * IBLT               Algorithms::IBLT
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
@@ -55,6 +56,21 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    # Reconcile large fixed-width unsigned integer ID sets:
+    left = Algorithms::IBLT.new(table_size: 128, key_bytes: 8)
+    right = Algorithms::IBLT.new(table_size: 128, key_bytes: 8)
+    [1, 2, 3].each { |id| left.insert(id) }
+    [2, 3, 4].each { |id| right.insert(id) }
+    result = (left - right).decode
+    result.complete?    #=> true
+    result.left_only    #=> [1]
+    result.right_only   #=> [4]
+
+    # Insertion has set semantics, so duplicate IDs in one service are ignored.
+    # Exchange to_json / from_json instead of sending the full ID list.
+    # When decode returns :incomplete, left_only and right_only are partial
+    # and result.residual contains the cells that stopped peeling.
 
 ## REQUIREMENTS:
 
