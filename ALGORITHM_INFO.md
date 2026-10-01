@@ -156,6 +156,21 @@
       * m is length of substring to search for
       * n is the total number of substrings
 
+* Suffix Index
+
+  * About - an incremental substring index built with a suffix automaton. Bytes can be appended without
+  rebuilding the index. Positions and equality are defined by bytes rather than characters.
+  * Examples
+    * **Incremental log substring search**
+    * **Overlapping occurrence counts**
+    * **Distinct non-empty substring counts**
+  * Class's method complexities
+    * Amortized time complexity: O(k) - `append` for k newly appended bytes
+    * Time complexity: O(m) - `has_substring?`
+    * Time complexity: O(m + n) - `occurrence_count` when statistics must be settled, O(m) after settlement
+    * Time complexity: O(n) - `distinct_substring_count` when statistics must be settled, O(1) after settlement
+    * Space complexity: O(n), where n is the indexed byte count
+
 * Search algorithms
 
   * Binary Search (i.e. BST, see RBTreeMap)

@@ -1,3 +1,7 @@
+=== October 2, 2026
+
+    * Add Containers::SuffixIndex for incremental byte substring searches, occurrence counts, and distinct substring counts
+
 === August 20, 2025
 
     * Fix Heap not working in certain cases
