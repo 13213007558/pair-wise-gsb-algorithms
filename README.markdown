@@ -45,6 +45,9 @@ compare performance in different situations.
       - Mergesort                Algorithms::Sort.mergesort
       - Dual-Pivot Quicksort     Algorithms::Sort.dualpivotquicksort
 
+    * String algorithms
+      - Multi-pattern matching  Algorithms::String::MultiPatternMatcher
+
 ## SYNOPSIS:
 
     require 'rubygems'

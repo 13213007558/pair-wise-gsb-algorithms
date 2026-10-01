@@ -46,6 +46,7 @@
     - Dual-Pivot Quicksort  - Algorithms::Sort.dualpivotquicksort
   * String algorithms
     - Levenshtein distance  - Algorithms::String.levenshtein_dist
+    - Multi-pattern matching - Algorithms::String::MultiPatternMatcher
 =end
 
 module Algorithms; end
