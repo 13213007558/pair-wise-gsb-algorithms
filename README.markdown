@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * Wavelet Tree       Containers::WaveletTree
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
