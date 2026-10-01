@@ -17,6 +17,7 @@ ext/containers/rbtree_map/rbtree.c
 ext/containers/splaytree_map/extconf.rb
 ext/containers/splaytree_map/splaytree.c
 lib/algorithms.rb
+lib/algorithms/aho_corasick.rb
 lib/algorithms/search.rb
 lib/algorithms/sort.rb
 lib/algorithms/string.rb
@@ -30,6 +31,7 @@ lib/containers/splay_tree_map.rb
 lib/containers/stack.rb
 lib/containers/suffix_array.rb
 lib/containers/trie.rb
+spec/aho_corasick_spec.rb
 spec/bst_gc_mark_spec.rb
 spec/bst_spec.rb
 spec/deque_gc_mark_spec.rb

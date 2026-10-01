@@ -34,6 +34,7 @@
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
     - Knuth-Morris-Pratt    - Algorithms::Search.kmp_search
+    - Aho-Corasick          - Algorithms::Search::AhoCorasick (multi-pattern, streaming)
   * Sort algorithms
     - Bubble sort           - Algorithms::Sort.bubble_sort
     - Comb sort             - Algorithms::Sort.comb_sort
@@ -52,6 +53,7 @@ module Algorithms; end
 module Containers; end
 
 require 'algorithms/search'
+require 'algorithms/aho_corasick'
 require 'algorithms/sort'
 require 'algorithms/string'
 require 'containers/heap'
