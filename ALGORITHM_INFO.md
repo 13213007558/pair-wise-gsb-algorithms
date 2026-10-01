@@ -156,6 +156,20 @@
       * m is length of substring to search for
       * n is the total number of substrings
 
+* KLL Sketch
+
+  * About - mergeable quantile summary of a numeric stream (Karnin, Lang, Liberty,
+  FOCS 2016). Workers report compact sketches to a central node, which merges them
+  and estimates arbitrary quantiles of the full data.
+    * Example - Refer to lib/containers/kll_sketch.rb
+  * The capacity parameter k controls the **rank error** of answers, not the value
+  error; the guarantee is probabilistic (random source is caller-supplied)
+  * Exact while uncompressed (n below level-0 capacity); estimates afterwards
+  * Class's method complexities
+    * Time Complexity: O(1) amortized - `add`
+    * Time Complexity: O(k log(n/k)) - `quantile`, `rank`, `cdf`
+    * Space Complexity: O(k log(n/k)) retained values
+
 * Search algorithms
 
   * Binary Search (i.e. BST, see RBTreeMap)

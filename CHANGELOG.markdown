@@ -1,3 +1,7 @@
+=== Unreleased
+
+    * Add Containers::KLLSketch, a mergeable quantile summary (KLL sketch)
+
 === August 20, 2025
 
     * Fix Heap not working in certain cases

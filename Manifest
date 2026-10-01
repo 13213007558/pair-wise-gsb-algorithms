@@ -23,6 +23,7 @@ lib/algorithms/string.rb
 lib/containers/deque.rb
 lib/containers/heap.rb
 lib/containers/kd_tree.rb
+lib/containers/kll_sketch.rb
 lib/containers/priority_queue.rb
 lib/containers/queue.rb
 lib/containers/rb_tree_map.rb
@@ -38,6 +39,7 @@ spec/heap_spec.rb
 spec/kd_expected_out.txt
 spec/kd_test_in.txt
 spec/kd_tree_spec.rb
+spec/kll_sketch_spec.rb
 spec/map_gc_mark_spec.rb
 spec/priority_queue_spec.rb
 spec/queue_spec.rb
