@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * Static Range Index Containers::StaticRangeIndex
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
@@ -55,6 +56,11 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    index = Containers::StaticRangeIndex.new([3, -1, 3, 2])
+    index.kth(1, 4, 2)       # 2
+    index.count(3, 1, 4)    # 1
+    index.count_less(3, 1, 4) # 2
 
 ## REQUIREMENTS:
 
