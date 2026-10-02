@@ -20,6 +20,7 @@ lib/algorithms.rb
 lib/algorithms/search.rb
 lib/algorithms/sort.rb
 lib/algorithms/string.rb
+lib/containers/compressed_bitmap.rb
 lib/containers/deque.rb
 lib/containers/heap.rb
 lib/containers/kd_tree.rb
@@ -32,6 +33,7 @@ lib/containers/suffix_array.rb
 lib/containers/trie.rb
 spec/bst_gc_mark_spec.rb
 spec/bst_spec.rb
+spec/compressed_bitmap_spec.rb
 spec/deque_gc_mark_spec.rb
 spec/deque_spec.rb
 spec/heap_spec.rb
