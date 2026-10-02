@@ -25,6 +25,7 @@ lib/containers/heap.rb
 lib/containers/kd_tree.rb
 lib/containers/priority_queue.rb
 lib/containers/queue.rb
+lib/containers/roaring_bitmap.rb
 lib/containers/rb_tree_map.rb
 lib/containers/splay_tree_map.rb
 lib/containers/stack.rb
@@ -41,6 +42,7 @@ spec/kd_tree_spec.rb
 spec/map_gc_mark_spec.rb
 spec/priority_queue_spec.rb
 spec/queue_spec.rb
+spec/roaring_bitmap_spec.rb
 spec/rb_tree_map_spec.rb
 spec/search_spec.rb
 spec/sort_spec.rb
