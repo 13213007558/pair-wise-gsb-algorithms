@@ -34,6 +34,7 @@ compare performance in different situations.
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
       - Knuth-Morris-Pratt       Algorithms::Search.kmp_search
+      - Sparse Exact Cover       Algorithms::SparseExactCover
     * Sorting algorithms           
       - Bubble sort              Algorithms::Sort.bubble_sort
       - Comb sort                Algorithms::Sort.comb_sort
@@ -55,6 +56,16 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    # Primary columns are required once; secondary columns are optional
+    # but cannot be selected twice.
+    rows = { a: [1, :x], b: [2, :x], c: [1], d: [2] }
+    cover = Algorithms::SparseExactCover.new(
+      rows,
+      primary_columns: [1, 2],
+      secondary_columns: [:x]
+    )
+    cover.to_a # => [[:a, :d], [:b, :c], [:c, :d]]
 
 ## REQUIREMENTS:
 

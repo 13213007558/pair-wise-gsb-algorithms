@@ -175,6 +175,13 @@
           * k - length of substring pattern being searching for
         * Reference: https://www.youtube.com/watch?v=GTJr8OvyEVQ
 
+  * Sparse Exact Cover
+    * About - selects sparse candidate rows so every primary column is covered exactly once.
+    Secondary columns are optional, but at most one selected row may cover each secondary column.
+    * Example - Refer to lib/algorithms/exact_cover.rb
+    * Search uses reversible Dancing Links, so sparse matrix links are restored
+    without copying the matrix at each recursion level.
+
 * Sorting algorithms
 
   * Computational complexity

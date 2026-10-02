@@ -34,6 +34,7 @@
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
     - Knuth-Morris-Pratt    - Algorithms::Search.kmp_search
+    - Sparse Exact Cover    - Algorithms::SparseExactCover
   * Sort algorithms
     - Bubble sort           - Algorithms::Sort.bubble_sort
     - Comb sort             - Algorithms::Sort.comb_sort
@@ -52,6 +53,7 @@ module Algorithms; end
 module Containers; end
 
 require 'algorithms/search'
+require 'algorithms/exact_cover'
 require 'algorithms/sort'
 require 'algorithms/string'
 require 'containers/heap'
