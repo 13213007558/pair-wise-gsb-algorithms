@@ -46,6 +46,8 @@
     - Dual-Pivot Quicksort  - Algorithms::Sort.dualpivotquicksort
   * String algorithms
     - Levenshtein distance  - Algorithms::String.levenshtein_dist
+  * Exact cover
+    - Algorithm X (dancing links) - Algorithms::ExactCover
 =end
 
 module Algorithms; end
@@ -54,6 +56,7 @@ module Containers; end
 require 'algorithms/search'
 require 'algorithms/sort'
 require 'algorithms/string'
+require 'algorithms/exact_cover'
 require 'containers/heap'
 require 'containers/stack'
 require 'containers/deque'

@@ -17,6 +17,7 @@ ext/containers/rbtree_map/rbtree.c
 ext/containers/splaytree_map/extconf.rb
 ext/containers/splaytree_map/splaytree.c
 lib/algorithms.rb
+lib/algorithms/exact_cover.rb
 lib/algorithms/search.rb
 lib/algorithms/sort.rb
 lib/algorithms/string.rb
@@ -34,6 +35,7 @@ spec/bst_gc_mark_spec.rb
 spec/bst_spec.rb
 spec/deque_gc_mark_spec.rb
 spec/deque_spec.rb
+spec/exact_cover_spec.rb
 spec/heap_spec.rb
 spec/kd_expected_out.txt
 spec/kd_test_in.txt
