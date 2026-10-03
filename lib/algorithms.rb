@@ -30,6 +30,7 @@
   * Tries           - Containers::Trie
   * Suffix Array    - Containers::SuffixArray
   * kd Tree         - Containers::KDTree
+  * Link-Cut Tree   - Containers::LinkCutTree
 
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
@@ -55,6 +56,7 @@ require 'algorithms/search'
 require 'algorithms/sort'
 require 'algorithms/string'
 require 'containers/heap'
+require 'containers/link_cut_tree'
 require 'containers/stack'
 require 'containers/deque'
 require 'containers/queue'
