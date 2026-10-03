@@ -28,6 +28,7 @@ compare performance in different situations.
     * Queue              Containers::Queue
     * Red-Black Trees    Containers::RBTreeMap, Containers::CRBTreeMap (C ext)
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
+    * Link-Cut Trees     Containers::LinkCutTree
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
 
@@ -55,6 +56,13 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    forest = LinkCutTree.new
+    a = forest.add_node(1)
+    b = forest.add_node(2)
+    forest.link(a, b)
+    forest.path_sum(a, b)       #=> 3
+    forest.add_path(a, b, 10)
 
 ## REQUIREMENTS:
 

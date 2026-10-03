@@ -27,6 +27,7 @@
   * Deque           - Containers::Deque, Containers::CDeque (C extension), Containers::RubyDeque
   * Red-Black Trees - Containers::RBTreeMap, Containers::CRBTreeMap (C extension), Containers::RubyRBTreeMap
   * Splay Trees     - Containers::SplayTreeMap
+  * Link-Cut Trees  - Containers::LinkCutTree
   * Tries           - Containers::Trie
   * Suffix Array    - Containers::SuffixArray
   * kd Tree         - Containers::KDTree
@@ -61,6 +62,7 @@ require 'containers/queue'
 require 'containers/priority_queue'
 require 'containers/rb_tree_map'
 require 'containers/splay_tree_map'
+require 'containers/link_cut_tree'
 require 'containers/suffix_array'
 require 'containers/trie'
 require 'containers/kd_tree'

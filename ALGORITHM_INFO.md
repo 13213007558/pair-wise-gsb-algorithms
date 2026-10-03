@@ -126,6 +126,19 @@
       * Time Complexity: O(1) - size, clear, height
       * Time Complexity: O(n) worst case - when keys added in sorted order, causing tree to have height of number of items added
 
+* Link-Cut Trees
+
+  * About LinkCutTree - maintains a dynamic forest with represented-tree edges
+  that may be added and removed. Splay trees represent preferred paths, while
+  path-parent pointers connect those paths into the current forest.
+    * Example - Refer to lib/containers/link_cut_tree.rb
+    * Examples
+      * Dynamic connectivity with `link`, `cut`, `make_root`, and `connected?`
+      * Path aggregates such as `path_sum` with lazy whole-path updates from `add_path`
+    * Node identities remain stable; link, cut, and make_root only move internal pointers
+    * Class's method complexities
+      * Time Complexity: O(log n) amortized - link, cut, make_root, connected?, path_sum, add_path, node value access
+
 * Tries (based on Ternary Search Tree, for store and Pattern Matching)
 
   * About - is an Ordered data structure that stores KV pairs in tree
