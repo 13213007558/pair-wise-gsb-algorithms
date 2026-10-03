@@ -30,6 +30,7 @@
   * Tries           - Containers::Trie
   * Suffix Array    - Containers::SuffixArray
   * kd Tree         - Containers::KDTree
+  * Wavelet Matrix  - Containers::WaveletMatrix
 
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
@@ -64,3 +65,4 @@ require 'containers/splay_tree_map'
 require 'containers/suffix_array'
 require 'containers/trie'
 require 'containers/kd_tree'
+require 'containers/wavelet_matrix'
