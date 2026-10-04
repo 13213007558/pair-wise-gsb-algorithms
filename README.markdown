@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * van Emde Boas      Containers::VanEmdeBoasSet
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
