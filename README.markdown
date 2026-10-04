@@ -45,6 +45,16 @@ compare performance in different situations.
       - Mergesort                Algorithms::Sort.mergesort
       - Dual-Pivot Quicksort     Algorithms::Sort.dualpivotquicksort
 
+    * Stream summaries
+      - Space-Saving heavy hitters Algorithms::SpaceSaving
+
+        summary = Algorithms::SpaceSaving.new(10)
+        events.each { |item| summary.update(item) }
+        summary.candidates
+        summary.estimate(item)
+        summary.error(item)
+        summary.merge(other_summary)
+
 ## SYNOPSIS:
 
     require 'rubygems'
