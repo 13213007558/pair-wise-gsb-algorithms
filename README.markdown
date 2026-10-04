@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * Xor Filter         Containers::XorFilter
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
@@ -55,6 +56,13 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    # A compact, immutable membership filter. Supply stable key hashing and random source.
+    random = Random.new(1234)
+    mask = 2 ** 64 - 1
+    filter = Containers::XorFilter.new([1, 2, 3], hash: ->(key) { key * 0x9e3779b97f4a7c15 & mask }, random: random)
+    filter.contains?(2) #=> true
+    filter.to_binary    #=> stable serialized representation
 
 ## REQUIREMENTS:
 

@@ -1,3 +1,7 @@
+=== Unreleased
+
+    * Add immutable Containers::XorFilter with stable binary serialization
+
 === August 20, 2025
 
     * Fix Heap not working in certain cases
