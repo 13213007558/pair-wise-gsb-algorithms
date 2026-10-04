@@ -34,6 +34,7 @@ compare performance in different situations.
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
       - Knuth-Morris-Pratt       Algorithms::Search.kmp_search
+      - Aho-Corasick             Algorithms::Search::AhoCorasickMatcher
     * Sorting algorithms           
       - Bubble sort              Algorithms::Sort.bubble_sort
       - Comb sort                Algorithms::Sort.comb_sort
@@ -55,6 +56,18 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    # Build once, then feed a byte stream in chunks. Intervals are
+    # [start_byte, end_byte); "he"/"hers" share a prefix and "she"/"he"
+    # share a suffix.
+    matcher = Algorithms::Search::AhoCorasickMatcher.new([
+      [1, "he"],
+      [2, "she"],
+      [3, "hers"]
+    ])
+    matcher.feed("ushe") # [#<struct pattern_id=1, start_byte=2, end_byte=4>,
+                         #  #<struct pattern_id=2, start_byte=1, end_byte=4>]
+    matcher.feed("rs")   # [#<struct pattern_id=3, start_byte=2, end_byte=6>]
 
 ## REQUIREMENTS:
 

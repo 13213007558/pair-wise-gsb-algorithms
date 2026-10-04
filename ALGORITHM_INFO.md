@@ -175,6 +175,17 @@
           * k - length of substring pattern being searching for
         * Reference: https://www.youtube.com/watch?v=GTJr8OvyEVQ
 
+  * Aho-Corasick Search
+    * About - builds one trie for multiple byte patterns and uses failure links to reuse
+    shared prefixes and suffixes without running KMP once per pattern
+    * Example - Refer to `AhoCorasickMatcher` in lib/algorithms/search.rb
+    * Class's method complexities
+      * Time Complexity: O(k + n + z log p) - build for k total pattern bytes, feed n
+      input bytes, return z overlapping matches, and deterministically order at most p
+      matches ending at the same byte
+      * Streaming - `feed` keeps automaton state and returns absolute byte intervals
+      across chunk boundaries
+
 * Sorting algorithms
 
   * Computational complexity

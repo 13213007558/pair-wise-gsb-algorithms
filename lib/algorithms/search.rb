@@ -3,6 +3,147 @@
     
 =end
 module Algorithms::Search
+  class AhoCorasickMatcher
+    Match = Struct.new(:pattern_id, :start_byte, :end_byte)
+    Node = Struct.new(:children, :transitions, :failure, :output_link, :depth, :patterns)
+
+    # Builds an Aho-Corasick automaton for zero or more byte patterns.
+    #
+    # Patterns may be supplied as strings, in which case their index in the
+    # array is used as the pattern ID, or as [pattern_id, pattern] pairs. The
+    # same pattern may be registered more than once with different IDs.
+    #
+    # Empty patterns are not supported and raise ArgumentError because their
+    # zero-width matches do not have a unique byte interval. Matching operates
+    # on bytes, independently of the string's character encoding.
+    #
+    # Construction complexity is O(total pattern length) expected time.
+    def initialize(patterns)
+      raise ArgumentError, "patterns must be Enumerable" unless patterns.is_a?(Enumerable)
+
+      @root = Node.new({}, {}, nil, nil, 0, [])
+
+      patterns.to_a.each_with_index do |entry, registration_order|
+        if entry.is_a?(Array) && entry.length == 2
+          pattern_id, pattern = entry
+        elsif entry.is_a?(String)
+          pattern_id = registration_order
+          pattern = entry
+        else
+          raise ArgumentError, "each pattern must be a String or [pattern_id, pattern] pair"
+        end
+
+        unless pattern.is_a?(String)
+          raise ArgumentError, "pattern #{registration_order.inspect} must be a String"
+        end
+        raise ArgumentError, "empty patterns are not supported" if pattern.empty?
+
+        node = @root
+        pattern.each_byte do |byte|
+          node = node.children[byte] ||= Node.new({}, {}, nil, nil, node.depth + 1, [])
+        end
+        node.patterns << [pattern_id, pattern.bytesize, registration_order]
+      end
+
+      build_failure_links
+      @state = @root
+      @position = 0
+    end
+
+    # Feeds the next chunk of the byte stream and returns every pattern match
+    # that ends in this chunk, including matches that began in a previous
+    # chunk. Match intervals are half-open: [start_byte, end_byte).
+    #
+    # Results are ordered by end_byte. When multiple matches end at the same
+    # byte, they are ordered by pattern_id, then constructor registration
+    # order. Pattern IDs must be mutually comparable. Feeding n bytes takes
+    # O(n + z log p) expected time, where z is the number of returned matches
+    # and p is the number of patterns that can end at one byte.
+    def feed(chunk)
+      raise ArgumentError, "chunk must be a String" unless chunk.is_a?(String)
+
+      matches = []
+      chunk.each_byte.with_index do |byte, index|
+        @state = next_state(@state, byte)
+        end_byte = @position + index + 1
+        collect_matches(@state, end_byte, matches)
+      end
+      @position += chunk.bytesize
+      matches
+    end
+
+    # Returns the matcher to the beginning of the stream. The built automaton
+    # is retained and can be reused for another byte stream.
+    def reset
+      @state = @root
+      @position = 0
+      self
+    end
+
+    private
+
+    def build_failure_links
+      queue = []
+      queue_index = 0
+      @root.failure = @root
+
+      @root.children.each_value do |child|
+        child.failure = @root
+        queue << child
+      end
+
+      while queue_index < queue.length
+        node = queue[queue_index]
+        queue_index += 1
+        failure = node.failure
+        node.output_link = failure.patterns.empty? ? failure.output_link : failure
+
+        node.children.each do |byte, child|
+          child.failure = next_state(failure, byte)
+          queue << child
+        end
+      end
+    end
+
+    def next_state(node, byte)
+      path = []
+
+      until node.children.key?(byte)
+        if node == @root
+          target = @root
+          break
+        end
+        if node.transitions.key?(byte)
+          target = node.transitions[byte]
+          break
+        end
+        path << node
+        node = node.failure
+      end
+      target ||= node.children[byte]
+      path.each { |current| current.transitions[byte] = target }
+      target
+    end
+
+    def collect_matches(state, end_byte, matches)
+      ending_here = []
+      node = state
+
+      until node == @root
+        ending_here.concat(node.patterns)
+        node = node.output_link
+        break if node.nil?
+      end
+
+      ending_here.sort_by! do |pattern_id, _length, registration_order|
+        [pattern_id, registration_order]
+      end
+      ending_here.each do |pattern_id, length, _registration_order|
+        matches << Match.new(pattern_id, end_byte - length, end_byte)
+      end
+    end
+  end
+
   # Binary Search: This search finds an item in log(n) time provided that the container is already sorted.
   # The method returns the item if it is found, or nil if it is not. If there are duplicates, the first one
   # found is returned, and this is not guaranteed to be the smallest or largest item.

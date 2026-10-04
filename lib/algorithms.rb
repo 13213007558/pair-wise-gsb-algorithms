@@ -34,6 +34,7 @@
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
     - Knuth-Morris-Pratt    - Algorithms::Search.kmp_search
+    - Aho-Corasick          - Algorithms::Search::AhoCorasickMatcher
   * Sort algorithms
     - Bubble sort           - Algorithms::Sort.bubble_sort
     - Comb sort             - Algorithms::Sort.comb_sort
