@@ -30,6 +30,7 @@ lib/containers/splay_tree_map.rb
 lib/containers/stack.rb
 lib/containers/suffix_array.rb
 lib/containers/trie.rb
+lib/containers/van_emde_boas.rb
 spec/bst_gc_mark_spec.rb
 spec/bst_spec.rb
 spec/deque_gc_mark_spec.rb
@@ -49,3 +50,4 @@ spec/stack_spec.rb
 spec/string_spec.rb
 spec/suffix_array_spec.rb
 spec/trie_spec.rb
+spec/van_emde_boas_spec.rb

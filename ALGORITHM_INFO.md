@@ -156,6 +156,16 @@
       * m is length of substring to search for
       * n is the total number of substrings
 
+* van Emde Boas Set
+
+  * About - ordered set of non-negative integers over a fixed universe of 2**bits values
+    * Example - Refer to lib/containers/van_emde_boas.rb
+    * Clusters and summaries are stored in hashes and allocated lazily, so construction does
+    not allocate 2**bits entries
+  * Class's method complexities
+    * Time Complexity: O(log bits) - insert, delete, member?, min, max, predecessor, successor
+    * Space Complexity: O(n log bits) allocated nodes for n stored elements
+
 * Search algorithms
 
   * Binary Search (i.e. BST, see RBTreeMap)
