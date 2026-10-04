@@ -30,6 +30,7 @@
   * Tries           - Containers::Trie
   * Suffix Array    - Containers::SuffixArray
   * kd Tree         - Containers::KDTree
+  * Priority Search Tree - Containers::PrioritySearchTree
 
   * Search algorithms
     - Binary Search         - Algorithms::Search.binary_search
@@ -64,3 +65,4 @@ require 'containers/splay_tree_map'
 require 'containers/suffix_array'
 require 'containers/trie'
 require 'containers/kd_tree'
+require 'containers/priority_search_tree'
