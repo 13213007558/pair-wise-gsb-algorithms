@@ -175,6 +175,19 @@
           * k - length of substring pattern being searching for
         * Reference: https://www.youtube.com/watch?v=GTJr8OvyEVQ
 
+  * Aho-Corasick Matcher
+    * About - builds one finite automaton for many byte-string patterns and feeds
+    the stream one chunk at a time. It reports all overlapping matches, including
+    patterns sharing a prefix or suffix, without running KMP once per pattern.
+    * Example - Refer to Algorithms::Search::AhoCorasickMatcher in lib/algorithms/search.rb
+    * Convention
+      * Empty patterns raise ArgumentError
+      * Byte intervals are absolute and half-open: [start_byte, end_byte)
+      * Matches with the same end byte are emitted longest first; duplicate patterns keep construction order
+    * Class's method complexities
+      * Construction Time Complexity: O(total pattern length)
+      * Streaming Time Complexity: O(bytes read + matches reported)
+
 * Sorting algorithms
 
   * Computational complexity
