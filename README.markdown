@@ -44,6 +44,14 @@ compare performance in different situations.
       - Quicksort                Algorithms::Sort.quicksort
       - Mergesort                Algorithms::Sort.mergesort
       - Dual-Pivot Quicksort     Algorithms::Sort.dualpivotquicksort
+    * Circular string algorithms
+      - Minimal rotation         Algorithms::String.minimal_rotation
+      - Minimal rotation starts  Algorithms::String.minimal_rotation_starts
+      - Lyndon factorization     Algorithms::String.lyndon_factorization
+
+    Minimal rotation and Lyndon factorization work on characters (Unicode
+    code points); the _bytes variants work on raw bytes and return BINARY
+    strings. All three are linear time and never enumerate all rotations.
 
 ## SYNOPSIS:
 

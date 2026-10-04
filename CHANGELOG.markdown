@@ -1,3 +1,13 @@
+=== October 4, 2026
+
+    * Add Algorithms::String.minimal_rotation (Booth's algorithm),
+      minimal_rotation_starts (all equivalent minima, KMP-based) and
+      lyndon_factorization (Duval's algorithm), in both character and
+      byte (_bytes) variants; all run in linear time without generating
+      or sorting rotations
+    * Add a pure-Ruby levenshtein_dist fallback for when the optional C
+      extension cannot be loaded
+
 === August 20, 2025
 
     * Fix Heap not working in certain cases
