@@ -253,5 +253,29 @@
       * Time Complexity: О(n^2)
       * Space Complexity: О(n) total, O(1) auxiliary
 
+* String algorithms
+
+  * Levenshtein distance - `Algorithms::String.levenshtein_dist`
+    * About - minimum number of single-character edits (insertions, deletions, substitutions)
+      needed to change one string into the other. Implemented in C (ext/algorithms/string)
+      with a pure-Ruby fallback.
+    * Time Complexity: O(m * n) - where m and n are the string lengths
+
+  * Circular (necklace) string algorithms - treat a string as a cycle. Each takes a
+    required `mode:` keyword: `:bytes` processes raw bytes (results are binary
+    ASCII-8BIT strings, indices are byte offsets, multi-byte characters may be split),
+    while `:chars` processes whole characters via String#each_char (multi-byte UTF-8
+    characters are never split, indices are character offsets).
+    * Minimal rotation - `Algorithms::String.minimal_rotation` returns the
+      lexicographically smallest cyclic rotation (Booth's algorithm).
+    * Minimal rotation starts - `Algorithms::String.minimal_rotation_starts` returns all
+      start offsets whose rotation equals the minimal one (one per repetition of the
+      primitive root for non-primitive words).
+    * Lyndon factorization - `Algorithms::String.lyndon_factorization` returns the unique
+      Chen-Fox-Lyndon factorization into a non-increasing sequence of Lyndon words
+      (Duval's algorithm).
+    * Time Complexity: O(n) - all three; they never materialize all n rotations
+    * Example - Refer to lib/algorithms/string.rb
+
 * Other Repositories
   * Bloom Filters https://www.igvita.com/2008/12/27/scalable-datasets-bloom-filters-in-ruby/

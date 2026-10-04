@@ -46,6 +46,9 @@
     - Dual-Pivot Quicksort  - Algorithms::Sort.dualpivotquicksort
   * String algorithms
     - Levenshtein distance  - Algorithms::String.levenshtein_dist
+    - Minimal rotation      - Algorithms::String.minimal_rotation
+    - Minimal rotations     - Algorithms::String.minimal_rotation_starts
+    - Lyndon factorization  - Algorithms::String.lyndon_factorization
 =end
 
 module Algorithms; end
