@@ -1,3 +1,9 @@
+=== October 4, 2026
+
+    * Add Containers::RoaringBitmap, a 32-bit Roaring Bitmap with array,
+      bitmap and run containers, rank/select, set operations and portable
+      serialization
+
 === August 20, 2025
 
     * Fix Heap not working in certain cases
