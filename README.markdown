@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * HyperLogLog        Containers::HyperLogLog
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
@@ -51,6 +52,10 @@ compare performance in different situations.
     require 'algorithms'
 
     max_heap = Containers::MaxHeap.new
+
+    hll = Containers::HyperLogLog.new
+    hll.add("user-1")
+    hll.estimate #=> approximate number of distinct values
 
     # To not have to type "Containers::" before each class, use:
     include Containers
