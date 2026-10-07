@@ -30,6 +30,7 @@ compare performance in different situations.
     * Splay Trees        Containers::SplayTreeMap, Containers::CSplayTreeMap (C ext)
     * Tries              Containers::Trie
     * Suffix Array       Containers::SuffixArray
+    * HyperLogLog        Containers::HyperLogLog
 
     * Search algorithms
       - Binary Search            Algorithms::Search.binary_search
@@ -55,6 +56,12 @@ compare performance in different situations.
     # To not have to type "Containers::" before each class, use:
     include Containers
     max_heap = MaxHeap.new
+
+    # Estimate distinct values with deterministic XXH64 hashing
+    hll = HyperLogLog.new(12)
+    1000.times { |index| hll.add("user-#{index}") }
+    hll.estimate
+    HyperLogLog.load(hll.dump).estimate
 
 ## REQUIREMENTS:
 
